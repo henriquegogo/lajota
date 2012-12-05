@@ -80,12 +80,27 @@
         checkHash();
     };
 
-    var render = function(template, data) {
-        $.get("templates/" + template + ".html", function(resp) {
+    var render = function(templateName, data, callback) {
+        var container = app.container;
+
+        if ($("script#" + templateName).length) {
+            var content = tmpl(templateName, data);
+
+            if (callback) {
+                return callback(content);
+            }
+
+            return $(container).html(content);
+        }
+
+        $.get("templates/" + templateName + ".html", function(resp) {
             var content = tmpl(resp, data);
-            var container = app.container;
-            
-            $(container).html(content);
+
+            if (callback) {
+                return callback(content);
+            }
+
+            return $(container).html(content);
         });
     };
 
@@ -104,11 +119,12 @@
 
     app.router({
         before: function() {
-            var loadingElement = $("<div id='loading' style='background: yellow'>Loading...</div>");
+            $(document).ajaxStart(function(){
+                var loadingElement = $("<div id='loading' style='background: yellow'>Loading...</div>");
+                $("body").prepend(loadingElement);
 
-            $("body").prepend(loadingElement);
-            $("#loading").ajaxStop(function(){
-                  $(this).remove();
+            }).ajaxStop(function(){
+                $("#loading").remove();
             });
         },
 
@@ -118,7 +134,7 @@
         "#/": function() {
             var data = { products: ["Rechilieu", "Bilro", "Croché"] };
 
-            app.render("index", data);
+            app.render("internal", data);
         },
 
         "#/user/:id": function(id) {
