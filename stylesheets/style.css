@@ -1,0 +1,18 @@
+html {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+#header {
+    background: #AAA;
+}
+
+#content {
+}
+
+#footer {
+    background: #EEE;
+}
