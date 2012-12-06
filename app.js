@@ -48,6 +48,12 @@
         return parseFloat(this);
     };
 
+    if(!String.prototype.trim) {
+      String.prototype.trim = function () {
+        return this.replace(/^\s+|\s+$/g,'');
+      };
+    }
+
     if (!Array.prototype.filter)
     {
       Array.prototype.filter = function(fun /*, thisp */)
@@ -206,7 +212,15 @@
                 });
             };
 
-            app.render("template_item", item, openDialog);
+            var containerContent = $(app.container).html().trim();
+
+            if (containerContent) {
+                app.render("template_item", item, openDialog);
+            
+            } else {
+                app.render("template_item", item);
+            }
+
         }
     });
 })();

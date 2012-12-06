@@ -15,6 +15,9 @@ a {
 #header {
     background: #AAA;
 }
+#header h1 {
+    margin: 0;
+}
 
 #content {
 }
@@ -60,7 +63,10 @@ a {
     float: left;
     display: block;
     width: 300px;
-    min-height: 300px;
+    min-height: 320px;
+}
+.item-image img {
+    width: 280px;
 }
 .item-title {
     display: block;
@@ -73,12 +79,18 @@ a {
     font-size: large;
     font-weight: bold;
 }
-.item-price-parcelas {
+.item-price-description {
+    display: block;
+    margin: 20px 0;
 }
 
 .ui-dialog {
     background: #FFF;
     box-shadow: 0 0 60px #555;
+    border-radius: 8px;
+    -ms-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
 }
 .ui-dialog-titlebar-close {
     float: right;
