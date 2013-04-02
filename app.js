@@ -85,7 +85,6 @@
     }
 })();
 
-    
 (function() {
     var router = function(routes) {
         $.extend(app.routes, routes);
