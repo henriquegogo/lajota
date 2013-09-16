@@ -1,4 +1,55 @@
 (function() {
+    String.prototype.toUrl = function() {
+        return this.toLowerCase()
+                   .replace(/^\s+|\s+$/g, "")
+                   .replace(/[_|\s]+/g, "-")
+                   .replace(/[^a-z0-9-]+/g, "")
+                   .replace(/[-]+/g, "-")
+                   .replace(/^-+|-+$/g, "");
+    };
+
+    String.prototype.toFloat = function() {
+        return parseFloat(this);
+    };
+
+    if(!String.prototype.trim) {
+      String.prototype.trim = function () {
+        return this.replace(/^\s+|\s+$/g,'');
+      };
+    }
+
+    if (!Array.prototype.filter)
+    {
+      Array.prototype.filter = function(fun /*, thisp */)
+      {
+        "use strict";
+     
+        if (this == null)
+          throw new TypeError();
+     
+        var t = Object(this);
+        var len = t.length >>> 0;
+        if (typeof fun != "function")
+          throw new TypeError();
+     
+        var res = [];
+        var thisp = arguments[1];
+        for (var i = 0; i < len; i++)
+        {
+          if (i in t)
+          {
+            var val = t[i]; // in case fun mutates this
+            if (fun.call(thisp, val, i, t))
+              res.push(val);
+          }
+        }
+     
+        return res;
+      };
+    }
+})();
+
+(function() {
     var data = {
         products: [
             { id: 1, title: "Toalha de mesa em renda de bilro", description: "Linda toalha toda trabalhada no mais perfeito detalhe", price: "150,00" },
