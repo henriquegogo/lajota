@@ -37,10 +37,12 @@
 function Lajota(container) {
     this.routes = {},
     this.container = container || "body";
+    this.templatesPath = "templates/";
 
-    Lajota.prototype.router = function(routes) {
-        $.extend(this.routes, routes);
-        routes = this.routes;
+    Lajota.prototype.router = function(newRoutes) {
+        for (route in newRoutes) this.routes[route] = newRoutes[route];
+
+        var routes = this.routes;
 
         var hash;
         
@@ -71,7 +73,7 @@ function Lajota(container) {
         };
 
         if ('onhashchange' in window) {
-            $(window).bind('hashchange', checkHash);
+            window.onhashchange = checkHash;
         } else {
             window.setInterval(checkHash, 200);
         }
@@ -96,7 +98,7 @@ function Lajota(container) {
             return $(container).html(content);
         }
 
-        $.get("templates/" + templateName + ".html", function(resp) {
+        $.get(this.templatesPath + templateName + ".html", function(resp) {
             var content = tmpl(resp, data);
 
             if (callback) {

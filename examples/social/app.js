@@ -8,5 +8,9 @@
         "#/": function() {
             app.render("template_index");
         },
+
+        "#/help": function() {
+            app.render("template_help");
+        },
     });
 })();
