@@ -1,5 +1,28 @@
 html {
+    font-family: sans-serif;
 }
 body {
     margin: 0;
+}
+
+.non-bold {
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: #00aaf6;
+}
+
+#header {
+    padding: 10px 20px;
+    color: #FFF;
+    background: #333;
+}
+
+.website-title {
+    margin: 0;
+}
+.website-title a {
+    color: #FFF;
 }
