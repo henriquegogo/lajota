@@ -9,7 +9,19 @@
 </head>
 <body>
     <div id="header">
-        <h1 class="website-title"><a href="#/">bi<span class="non-bold">kle</span>ts</a></h1>
+        <div class="header-container">
+            <h1 class="website-title"><a href="#/">bi<span class="non-bold">kle</span>ts</a></h1>
+            <ul id="menu">
+                <li><a href="#/bikes" class="menu-item menu-item-bikes">Bikes</a></li>
+                <li><a href="#/users" class="menu-item menu-item-users">Users</a></li>
+            </ul>
+            <div id="user-link">
+                <a href="#/henriquegogo">
+                    <img src="http://2.gravatar.com/avatar/943753a9af1bd4a2f6466875ac5efccd?size=26" class="user-link-avatar">
+                    <span class="user-link-name">henriquegogo</span>
+                </a>
+            </div>
+        </div>
     </div>
     <div id="content">
         
@@ -25,6 +37,24 @@
 
 <script type="text/html" id="template_help">
     <h2>Can I help you?</h2>
+</script>
+    
+<script type="text/html" id="template_bikes">
+    <h2>All bikes</h2>
+    <ul class="bikes-list">
+        <% for (i in bikes) { %>
+        <li>
+            <a href="#/bikes/<%= bikes[i].id %>" class="bikes-list-item">
+                <img src="<%= bikes[i].thumbPath %>" class="bikes-list-item-thumb">
+                <span class="bikes-list-item-info"><%= bikes[i].info %></span>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+</script>
+
+<script type="text/html" id="template_users">
+    <h2>Users list</h2>
 </script>
 
 <script src="../../libs/jquery-1.8.3.min.js" type="text/javascript"></script>

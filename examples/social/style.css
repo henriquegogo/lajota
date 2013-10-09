@@ -3,6 +3,7 @@ html {
 }
 body {
     margin: 0;
+    background: #EBEBEB;
 }
 
 .non-bold {
@@ -13,16 +14,129 @@ a {
     text-decoration: none;
     color: #00aaf6;
 }
+h2 {
+    margin: 20px;
+    font-weight: normal;
+    font-size: 25px;
+}
 
 #header {
-    padding: 10px 20px;
+    height: 60px;
+    padding: 0 20px;
     color: #FFF;
     background: #333;
 }
+.header-container {
+    margin: 0 auto;
+    width: 1148px;
+}
 
 .website-title {
+    display: inline-block;
     margin: 0;
+    padding-right: 20px;
+    vertical-align: middle;
 }
 .website-title a {
+    display: block;
+    height: 60px;
+    line-height: 60px;
     color: #FFF;
+}
+
+#menu {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+#menu li {
+    display: inline-block;
+    list-style: none;
+}
+.menu-item {
+    display: inline-block;
+    padding: 0 5px 0 40px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #FFF;
+    vertical-align: middle;
+    background: no-repeat 10px center;
+    background-size: 25px;
+}
+.menu-item:hover {
+    color: #00aaf6;
+}
+
+.menu-item-bikes {
+    background-image: url(images/icon-bike.png);
+}
+.menu-item-bikes:hover {
+    background-image: url(images/icon-bike-hover.png);
+}
+
+.menu-item-users {
+    background-image: url(images/icon-users.png);
+}
+.menu-item-users:hover {
+    background-image: url(images/icon-users-hover.png);
+}
+
+#user-link {
+    float: right;
+    line-height: 60px;
+}
+#user-link:hover .user-link-name {
+    color: #00aaf6;
+}
+.user-link-avatar {
+    vertical-align: middle;
+    border-radius: 999px;
+    -ms-border-radius: 999px;
+    -moz-border-radius: 999px;
+}
+.user-link-name {
+    margin-left: 5px;
+    font-size: 13px;
+    color: #FFF;
+}
+
+#content {
+    margin: 30px auto 10px;
+    padding: 1px 0;
+    width: 1148px;
+    background: #FFF;
+    border: 1px solid #DDD;
+}
+
+.bikes-list {
+    margin: 20px 10px;
+    padding: 0;
+}
+.bikes-list li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px;
+}
+.bikes-list-item {
+    color: #333;
+}
+.bikes-list-item:hover {
+    text-decoration: underline;
+}
+.bikes-list-item-thumb {
+    width: 202px;
+    height: 202px;
+}
+.bikes-list-item-info {
+    display: block;
+    font-size: 13px;
+}
+
+#footer {
+    margin: 0 auto 20px;
+    width: 1148px;
+    color: #999;
+    font-size: 13px;
 }
