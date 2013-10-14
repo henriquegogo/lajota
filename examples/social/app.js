@@ -39,6 +39,12 @@
             
             app.render("template_bikes", data);
         },
+
+        "#/bikes/:id": function() {
+            var data = { id: 12, imagePath: "images/bike-list-item.jpg", info: "'Princesa' - Monark City" };
+
+            app.render("template_bike", data);
+        },
         
         "#/users": function() {
             app.render("template_users");
