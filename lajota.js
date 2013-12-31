@@ -47,6 +47,8 @@ function Lajota(container) {
         var hash;
         
         var splitParams = function() {
+            routes.before();
+
             for (route in routes) {
                 var routeRegex = "^" + route.replace(/:([A-z0-9_-]*)/g, "([A-z0-9_-]*)") + "(/?)$";
 
@@ -55,14 +57,12 @@ function Lajota(container) {
 
                 if (matches) {
                     matches.shift();
-
-                    routes.before();
                     callRoute.apply(this, matches);
-                    routes.after();
-                    
                     break;
                 }
             }
+
+            routes.after();
         };
 
         var checkHash = function() {
